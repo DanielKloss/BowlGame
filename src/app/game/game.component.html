@@ -1,6 +1,6 @@
 <div class="container background-secondary">
     <div class="background-primary">
-        <p class="title">{{playername}}</p>
+        <p class="title">{{username}}</p>
         <p>{{roomNumber}}</p>
         <p>{{time}}</p>
     </div>
@@ -20,13 +20,13 @@
             <p>TEAM {{team.teamNumber}} - SCORE {{team.score}}</p>
             <p *ngFor="let player of team.players">{{player.username}}</p>
         </div>
-        <p>{{clueGiver.username}} is giving clue to the other team</p>
+        <p>{{clueGiver}} is giving clue to the other team</p>
         <p>PREVIOUS WORDS:</p>
         <p *ngFor="let word of guessedItems">{{word}}</p>
     </div>
 
     <div *ngIf="views.guessingView">
-        <p>{{clueGiver.username}} is giving clues for your team</p>
+        <p>{{clueGiver}} is giving clues for your team</p>
         <p>Shout out a guess when you think you know!</p>
         <p>PREVIOUS WORDS:</p>
         <p *ngFor="let word of guessedItems">{{word}}</p>

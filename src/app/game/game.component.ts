@@ -9,7 +9,7 @@ import { team, turnModel, clueModel, views } from '../models/socketModels';
   styleUrls: ['./game.component.scss']
 })
 export class GameComponent implements OnInit {
-  playerName: string;
+  username: string;
   roomNumber: string;
   isClueGiver: boolean;
 
@@ -26,7 +26,7 @@ export class GameComponent implements OnInit {
   constructor(private route: ActivatedRoute, private serverService: ServerService) { }
 
   ngOnInit() {
-    this.playerName = this.route.snapshot.paramMap.get('username');
+    this.username = this.route.snapshot.paramMap.get('username');
     this.roomNumber = this.route.snapshot.paramMap.get('roomNumber');
 
     this.views = new views();
