@@ -8,7 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "postinstall": "ng build --output-path bowl-game-client --aot --prod"
+    "postinstall": "ng build --aot --target=production"
   },
   "resolutions": {
     "@babel/preset-env": "7.5.5"
@@ -39,8 +39,6 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^0.803.24",
-    "@angular/cli": "~8.1.1",
-    "@angular/compiler-cli": "~8.1.1",
     "@angular/language-service": "~8.1.1",
     "@types/jasmine": "~3.3.8",
     "@types/jasminewd2": "~2.0.3",
@@ -55,7 +53,6 @@
     "karma-jasmine-html-reporter": "^1.4.0",
     "protractor": "~5.4.0",
     "ts-node": "~7.0.0",
-    "tslint": "~5.15.0",
-    "typescript": "~3.4.3"
+    "tslint": "~5.15.0"
   }
 }
