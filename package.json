@@ -7,13 +7,15 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "postinstall": "ng build --output-path angularapp  --aot --prod"
   },
   "resolutions": {
     "@babel/preset-env": "7.5.5"
   },
   "engines": {
-    "node": "10.16.0"
+    "node": "10.16.0",
+    "npm": "6.9.0"
   },
   "private": true,
   "dependencies": {
