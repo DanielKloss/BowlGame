@@ -1,0 +1,39 @@
+<div class="container background-secondary">
+    <div class="background-primary">
+        <p class="title">{{username}}</p>
+        <p>{{roomNumber}}</p>
+        <p>{{time}}</p>
+    </div>
+
+    <div *ngIf="views.lobbyView">
+        <div *ngFor="let team of teams">
+            <p>TEAM {{team.teamNumber}} - SCORE {{team.score}}</p>
+            <p *ngFor="let player of team.players">{{player.username}}</p>
+        </div>
+
+        <button mat-flat-button color="primary" class="playButton" *ngIf="isClueGiver" (click)="startGame()">START
+            TURN</button>
+    </div>
+
+    <div *ngIf="views.waitingView">
+        <div *ngFor="let team of teams">
+            <p>TEAM {{team.teamNumber}} - SCORE {{team.score}}</p>
+            <p *ngFor="let player of team.players">{{player.username}}</p>
+        </div>
+        <p>{{clueGiver.username}} is giving clue to the other team</p>
+        <p>PREVIOUS WORDS:</p>
+        <p *ngFor="let word of guessedItems">{{word}}</p>
+    </div>
+
+    <div *ngIf="views.guessingView">
+        <p>{{clueGiver.username}} is giving clues for your team</p>
+        <p>Shout out a guess when you think you know!</p>
+        <p>PREVIOUS WORDS:</p>
+        <p *ngFor="let word of guessedItems">{{word}}</p>
+    </div>
+
+    <div *ngIf="views.clueingView">
+        <p>{{itemToGuess}}</p>
+        <button mat-flat-button color="primary" class="playButton" (click)="gotClue()">GOT IT!</button>
+    </div>
+</div>
