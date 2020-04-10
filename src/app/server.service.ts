@@ -7,7 +7,7 @@ import * as socketIo from 'socket.io-client';
 })
 export class ServerService {
   socket: any;
-  readonly url: string = "http://localhost:5000";
+  readonly url: string = "https://thebowlgameserver.herokuapp.com/";
 
   constructor() {
     this.socket = socketIo(this.url);
