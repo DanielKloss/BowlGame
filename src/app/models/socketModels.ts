@@ -34,6 +34,7 @@ export class team {
 export class turnModel {
     clueGiver: string;
     teamNumber: string;
+    time: number;
 
     public constructor(init?: Partial<turnModel>) {
         Object.assign(this, init);
@@ -44,8 +45,18 @@ export class clueModel {
     word: string;
     clueGiver: string;
     teamNumber: string;
+    time: number;
 
     public constructor(init?: Partial<clueModel>) {
         Object.assign(this, init);
+    }
+}
+
+export class timer {
+    constructor(public counter) {
+        let intervalId = setInterval(() => {
+            this.counter = this.counter - 1;
+            if (this.counter === 0) clearInterval(intervalId)
+        }, 1000)
     }
 }

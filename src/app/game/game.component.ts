@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ServerService } from '../server.service';
-import { team, turnModel, clueModel, views } from '../models/socketModels';
+import { team, turnModel, clueModel, views, timer } from '../models/socketModels';
 
 @Component({
   selector: 'app-game',
@@ -21,7 +21,8 @@ export class GameComponent implements OnInit {
 
   clue: string;
   guessedItems: string[] = [];
-  time: string;
+
+  timer: timer;
 
   constructor(private route: ActivatedRoute, private serverService: ServerService) { }
 
@@ -36,16 +37,13 @@ export class GameComponent implements OnInit {
       this.teams = data;
     });
 
-    this.serverService.listen("timeDown").subscribe((data: string) => {
-      this.time = data;
-    });
-
     this.serverService.listen("startTurnButton").subscribe(() => {
       this.isClueGiver = true;
     });
 
     this.serverService.listen("cluer").subscribe((data: string) => {
       let model: clueModel = JSON.parse(data);
+      this.timer = new timer(model.time);
       this.clue = model.word;
       this.clueGiver = model.clueGiver;
       this.guessingTeam = model.teamNumber;
@@ -55,6 +53,7 @@ export class GameComponent implements OnInit {
 
     this.serverService.listen("guessing").subscribe((data: string) => {
       let model: turnModel = JSON.parse(data);
+      this.timer = new timer(model.time);
       this.clueGiver = model.clueGiver;
       this.guessingTeam = model.teamNumber;
       this.guessedItems = [];
@@ -63,6 +62,7 @@ export class GameComponent implements OnInit {
 
     this.serverService.listen("waiting").subscribe((data: string) => {
       let model: turnModel = JSON.parse(data);
+      this.timer = new timer(model.time);
       this.clueGiver = model.clueGiver;
       this.guessingTeam = model.teamNumber;
       this.guessedItems = [];
