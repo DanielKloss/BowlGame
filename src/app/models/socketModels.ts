@@ -24,6 +24,7 @@ export class joinRoomModel {
 export class team {
     teamNumber: number;
     players: string[];
+    score: number;
 
     public constructor(init?: Partial<team>) {
         Object.assign(this, init);
@@ -41,6 +42,8 @@ export class turnModel {
 
 export class clueModel {
     word: string;
+    clueGiver: string;
+    teamNumber: string;
 
     public constructor(init?: Partial<clueModel>) {
         Object.assign(this, init);
