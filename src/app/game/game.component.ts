@@ -19,7 +19,7 @@ export class GameComponent implements OnInit {
 
   views: views;
 
-  itemToGuess: string;
+  clue: string;
   guessedItems: string[] = [];
   time: string;
 
@@ -46,7 +46,7 @@ export class GameComponent implements OnInit {
 
     this.serverService.listen("cluer").subscribe((data: string) => {
       let model: clueModel = JSON.parse(data);
-      this.itemToGuess = model.word;
+      this.clue = model.word;
       this.clueView();
     });
 
@@ -72,7 +72,7 @@ export class GameComponent implements OnInit {
 
     this.serverService.listen("newClue").subscribe((data: string) => {
       let model: clueModel = JSON.parse(data);
-      this.itemToGuess = model.word;
+      this.clue = model.word;
     });
 
     this.serverService.listen("newClueResult").subscribe((data: string) => {
@@ -86,7 +86,7 @@ export class GameComponent implements OnInit {
   }
 
   gotClue() {
-    this.serverService.emit('gotClue', { roomNumber: this.roomNumber });
+    this.serverService.emit('gotClue', { roomNumber: this.roomNumber, gotClue: this.clue });
   }
 
   clueView() {
