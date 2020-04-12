@@ -35,12 +35,9 @@
         <mat-tab label="CREATE GAME">
             <div class="playerForm">
                 <mat-form-field class="playerEntry">
-                    <input matInput placeholder="NUMBER OF TEAMS" [(ngModel)]="numberOfTeams"
-                        [ngModelOptions]="{standalone: true}" />
+                    <input matInput placeholder="NUMBER OF TEAMS" [(ngModel)]="numberOfTeams" [ngModelOptions]="{standalone: true}" />
                 </mat-form-field>
-                <button mat-flat-button color="primary" class="playButton" (click)="createRoom()"
-                    style="margin-top: 20px;">CREATE
-                    GAME</button>
+                <button mat-flat-button color="primary" class="playButton" (click)="createRoom()">CREATE GAME</button>
             </div>
         </mat-tab>
     </mat-tab-group>
