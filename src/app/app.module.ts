@@ -11,7 +11,8 @@ import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTabsModule } from '@angular/material/tabs';
-import { MatCardModule, MatCard } from '@angular/material/card';
+import { MatCardModule } from '@angular/material/card';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,7 @@ import { MatCardModule, MatCard } from '@angular/material/card';
     MatButtonModule,
     MatInputModule,
     MatTabsModule,
-    MatCardModule
+    MatProgressBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

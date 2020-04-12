@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ServerService } from '../server.service';
-import { team, turnModel, clueModel, views, timer } from '../models/socketModels';
+import { team, turnModel, clueModel, views, timer, clueResult } from '../models/socketModels';
 
 @Component({
   selector: 'app-game',
@@ -23,6 +23,9 @@ export class GameComponent implements OnInit {
   guessedItems: string[] = [];
 
   timer: timer;
+
+  wordsLeft: number;
+  percantageWordsGuessed: number;
 
   constructor(private route: ActivatedRoute, private serverService: ServerService) { }
 
@@ -48,6 +51,8 @@ export class GameComponent implements OnInit {
       this.clueGiver = model.clueGiver;
       this.guessingTeam = model.teamNumber;
       this.guessedItems = [];
+      this.wordsLeft = model.wordsLeft;
+      this.percantageWordsGuessed = model.percantageWordsGuessed;
       this.clueView();
     });
 
@@ -57,6 +62,8 @@ export class GameComponent implements OnInit {
       this.clueGiver = model.clueGiver;
       this.guessingTeam = model.teamNumber;
       this.guessedItems = [];
+      this.wordsLeft = model.wordsLeft;
+      this.percantageWordsGuessed = model.percantageWordsGuessed;
       this.guessView();
     });
 
@@ -66,6 +73,8 @@ export class GameComponent implements OnInit {
       this.clueGiver = model.clueGiver;
       this.guessingTeam = model.teamNumber;
       this.guessedItems = [];
+      this.wordsLeft = model.wordsLeft;
+      this.percantageWordsGuessed = model.percantageWordsGuessed;
       this.waitView();
     });
 
@@ -79,10 +88,15 @@ export class GameComponent implements OnInit {
     this.serverService.listen("newClue").subscribe((data: string) => {
       let model: clueModel = JSON.parse(data);
       this.clue = model.word;
+      this.wordsLeft = model.wordsLeft;
+      this.percantageWordsGuessed = model.percantageWordsGuessed;
     });
 
     this.serverService.listen("newClueResult").subscribe((data: string) => {
-      this.guessedItems.push(data);
+      let model: clueResult = JSON.parse(data);
+      this.guessedItems.push(model.word);
+      this.wordsLeft = model.wordsLeft;
+      this.percantageWordsGuessed = model.percantageWordsGuessed;
 
       this.addScore();
     });

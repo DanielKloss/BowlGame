@@ -3,6 +3,8 @@
         <p class="title">{{username}}</p>
         <p class="pageInfo">ROOM: <span class="bold">{{roomNumber}}</span></p>
         <p class="pageInfo">TIME LEFT: {{timer.counter}}</p>
+        <p class="pageInfo">WORDS LEFT: {{wordsLeft}}</p>
+        <mat-progress-bar dir="rtl" mode="determinate" [value]="percantageWordsGuessed"></mat-progress-bar>
     </div>
 
     <div *ngIf="views.lobbyView">

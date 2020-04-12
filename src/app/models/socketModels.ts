@@ -35,6 +35,8 @@ export class turnModel {
     clueGiver: string;
     teamNumber: string;
     time: number;
+    percantageWordsGuessed: number;
+    wordsLeft: number;
 
     public constructor(init?: Partial<turnModel>) {
         Object.assign(this, init);
@@ -46,8 +48,20 @@ export class clueModel {
     clueGiver: string;
     teamNumber: string;
     time: number;
+    percantageWordsGuessed: number;
+    wordsLeft: number;
 
     public constructor(init?: Partial<clueModel>) {
+        Object.assign(this, init);
+    }
+}
+
+export class clueResult {
+    word: string;
+    percantageWordsGuessed: number;
+    wordsLeft: number;
+
+    public constructor(init?: Partial<clueResult>) {
         Object.assign(this, init);
     }
 }
