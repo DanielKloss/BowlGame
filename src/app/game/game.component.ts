@@ -20,6 +20,7 @@ export class GameComponent implements OnInit {
   views: views;
 
   clue: string;
+  roundInstructions: string;
   guessedItems: string[] = [];
 
   timer: timer;
@@ -53,6 +54,7 @@ export class GameComponent implements OnInit {
       this.guessedItems = [];
       this.wordsLeft = model.wordsLeft;
       this.percantageWordsGuessed = model.percantageWordsGuessed;
+      this.roundInstructions = model.roundInstructions;
       this.clueView();
     });
 
@@ -78,10 +80,11 @@ export class GameComponent implements OnInit {
       this.waitView();
     });
 
-    this.serverService.listen("lobby").subscribe((data: string) => {
+    this.serverService.listen("lobby").subscribe(() => {
       console.log("lobby");
       this.isClueGiver = false;
       this.guessedItems = [];
+      clearInterval(this.timer.intervalId);
       this.lobbyView();
     });
 

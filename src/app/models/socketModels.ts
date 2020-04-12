@@ -50,6 +50,7 @@ export class clueModel {
     time: number;
     percantageWordsGuessed: number;
     wordsLeft: number;
+    roundInstructions: string;
 
     public constructor(init?: Partial<clueModel>) {
         Object.assign(this, init);
@@ -67,10 +68,12 @@ export class clueResult {
 }
 
 export class timer {
+    intervalId: any;
+
     constructor(public counter) {
-        let intervalId = setInterval(() => {
+        this.intervalId = setInterval(() => {
             this.counter = this.counter - 1;
-            if (this.counter === 0) clearInterval(intervalId)
+            if (this.counter === 0) clearInterval(this.intervalId)
         }, 1000)
     }
 }

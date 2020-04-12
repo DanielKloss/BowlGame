@@ -7,7 +7,7 @@
         <mat-progress-bar dir="rtl" mode="determinate" [value]="percantageWordsGuessed"></mat-progress-bar>
     </div>
 
-    <div *ngIf="views.lobbyView">
+    <div *ngIf="views.lobbyView" class="playerForm">
         <div *ngFor="let team of teams">
             <p class="sectionTitle">TEAM {{team.teamNumber}} - <span class="sectionInfo">SCORE {{team.score}}</span></p>
             <p class="textListItem" *ngFor="let player of team.players">{{player.username}}</p>
@@ -22,7 +22,7 @@
             <p>TEAM {{team.teamNumber}} - SCORE {{team.score}}</p>
             <p *ngFor="let player of team.players" class="textListItem">{{player.username}}</p>
         </div>
-        <p class="textListItem"><span class="bold">{{clueGiver}}</span>is giving clues to the other team. <span
+        <p class="textListItem"><span class="bold">{{clueGiver}}</span> is giving clues to the other team. <span
                 class="bold">PAY ATTENTION</span>, these words will appear again in future rounds</p>
         <p class="sectionTitle">Words guessed in this round:</p>
         <p *ngFor="let word of guessedItems" class="textListItem">{{word}}</p>
@@ -37,8 +37,8 @@
         <p *ngFor="let word of guessedItems" class="textListItem">{{word}}</p>
     </div>
 
-    <div *ngIf="views.clueingView">
-        <p class="center">{{roundInstruction}}</p>
+    <div *ngIf="views.clueingView" class="playerForm"> 
+        <p class="center">{{roundInstructions}}</p>
         <p class="center">Your clue is:</p>
         <p class="title bold">{{clue}}</p>
         <p class="center">Click <span class="bold">GOT IT</span> when someone from your team guesses correctly</p>
