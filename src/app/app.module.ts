@@ -5,13 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LobbyComponent } from './lobby/lobby.component';
 import { GameComponent } from './game/game.component';
+import { ServerService } from './server.service';
+import { CanDeactivateGuard } from './canDeactivateGuard';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTabsModule } from '@angular/material/tabs';
-import { MatCardModule } from '@angular/material/card';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 @NgModule({
@@ -24,13 +25,14 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+
     FormsModule,
     MatButtonModule,
     MatInputModule,
     MatTabsModule,
     MatProgressBarModule
   ],
-  providers: [],
+  providers: [ServerService, CanDeactivateGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

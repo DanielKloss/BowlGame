@@ -3,11 +3,12 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { LobbyComponent } from './lobby/lobby.component'
 import { GameComponent } from './game/game.component'
+import { CanDeactivateGuard } from './canDeactivateGuard';
 
 const routes: Routes = [
   { path: '', redirectTo: '/lobby', pathMatch: 'full' },
   { path: 'lobby', component: LobbyComponent },
-  { path: 'game/:username/:roomNumber/:team', component: GameComponent }
+  { path: 'game/:username/:roomNumber/:team', component: GameComponent, canDeactivate: [CanDeactivateGuard] }
 ];
 
 @NgModule({

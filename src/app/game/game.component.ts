@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ServerService } from '../server.service';
 import { team, turnModel, clueModel, views, timer, clueResult } from '../models/socketModels';
@@ -103,6 +103,15 @@ export class GameComponent implements OnInit {
 
       this.addScore();
     });
+  }
+
+  @HostListener('window:beforeunload', ['$event'])
+  unloadNotification($event: any) {
+    $event.returnValue = true;
+  }
+
+  canDeactivate() {
+    return window.confirm('You are about to leave the game. Once you leave you will not be able to get back in.');
   }
 
   startGame() {
