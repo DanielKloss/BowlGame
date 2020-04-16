@@ -55,7 +55,7 @@ export class LobbyComponent implements OnInit {
       this.errorMessage = "";
       this.username = this.username.toUpperCase();
       this.roomNumber = this.roomNumber.toUpperCase();
-      let submissions = [this.submittedName, this.submittedPlace, this.submittedSong, this.submittedBook, this.submittedFilm]
+      let submissions = [this.submittedName.toUpperCase(), this.submittedPlace.toUpperCase(), this.submittedSong.toUpperCase(), this.submittedBook.toUpperCase(), this.submittedFilm.toUpperCase()]
       this.serverService.emit("joinRoom", { username: this.username, roomNumber: this.roomNumber, submissions: submissions });
     }
   }
@@ -67,7 +67,7 @@ export class LobbyComponent implements OnInit {
       this.errorMessage = "YOU MUST HAVE AT LEAST 2 TEAMS";
     } else {
       this.username = this.username.toUpperCase();
-      let submissions = [this.submittedName, this.submittedPlace, this.submittedSong, this.submittedBook, this.submittedFilm]
+      let submissions = [this.submittedName.toUpperCase(), this.submittedPlace.toUpperCase(), this.submittedSong.toUpperCase(), this.submittedBook.toUpperCase(), this.submittedFilm.toUpperCase()]
       this.serverService.emit("createRoom", { username: this.username, numberOfTeams: this.numberOfTeams, submissions: submissions });
     }
   }
