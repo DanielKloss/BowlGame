@@ -6,19 +6,19 @@
             <input matInput placeholder="YOUR NAME" [(ngModel)]="username" [ngModelOptions]="{standalone: true}">
         </mat-form-field>
         <mat-form-field class="playerEntrySmall">
-            <input matInput placeholder="NAME" [(ngModel)]="submittedName" [ngModelOptions]="{standalone: true}" />
+            <input matInput placeholder="NAME" [(ngModel)]="submittedName" [ngModelOptions]="{standalone: true}" autocomplete="off"/>
         </mat-form-field>
         <mat-form-field class="playerEntrySmall">
-            <input matInput placeholder="PLACE" [(ngModel)]="submittedPlace" [ngModelOptions]="{standalone: true}" />
+            <input matInput placeholder="PLACE" [(ngModel)]="submittedPlace" [ngModelOptions]="{standalone: true}" autocomplete="off"/>
         </mat-form-field>
         <mat-form-field class="playerEntrySmall">
-            <input matInput placeholder="SONG" [(ngModel)]="submittedSong" [ngModelOptions]="{standalone: true}" />
+            <input matInput placeholder="SONG" [(ngModel)]="submittedSong" [ngModelOptions]="{standalone: true}" autocomplete="off"/>
         </mat-form-field>
         <mat-form-field class="playerEntrySmall">
-            <input matInput placeholder="BOOK" [(ngModel)]="submittedBook" [ngModelOptions]="{standalone: true}" />
+            <input matInput placeholder="BOOK" [(ngModel)]="submittedBook" [ngModelOptions]="{standalone: true}" autocomplete="off"/>
         </mat-form-field>
         <mat-form-field class="playerEntrySmall">
-            <input matInput placeholder="FILM" [(ngModel)]="submittedFilm" [ngModelOptions]="{standalone: true}" />
+            <input matInput placeholder="FILM" [(ngModel)]="submittedFilm" [ngModelOptions]="{standalone: true}" autocomplete="off"/>
         </mat-form-field>
     </div>
 
@@ -26,8 +26,8 @@
         <mat-tab label="JOIN GAME">
             <div class="playerForm">
                 <mat-form-field class="playerEntry">
-                    <input matInput placeholder="GAME NUMBER" [(ngModel)]="roomNumber"
-                        [ngModelOptions]="{standalone: true}">
+                    <input matInput placeholder="ROOM NUMBER" [(ngModel)]="roomNumber"
+                        [ngModelOptions]="{standalone: true}" autocomplete="off">
                 </mat-form-field>
                 <button mat-flat-button color="primary" class="playButton" (click)="joinRoom()">JOIN GAME</button>
             </div>
@@ -35,7 +35,7 @@
         <mat-tab label="CREATE GAME">
             <div class="playerForm">
                 <mat-form-field class="playerEntry">
-                    <input matInput placeholder="NUMBER OF TEAMS" [(ngModel)]="numberOfTeams" [ngModelOptions]="{standalone: true}" />
+                    <input matInput placeholder="NUMBER OF TEAMS" [(ngModel)]="numberOfTeams" [ngModelOptions]="{standalone: true}" autocomplete="off"/>
                 </mat-form-field>
                 <button mat-flat-button color="primary" class="playButton" (click)="createRoom()">CREATE GAME</button>
             </div>
