@@ -1,7 +1,7 @@
 <div class="container background-secondary">
     <div class="background-primary">
         <p class="title">{{username}}</p>
-        <p class="pageInfo">ROOM: <span class="bold">{{roomNumber}}</span></p>
+        <p class="pageInfo">GAME: <span class="bold">{{roomNumber}}</span></p>
         <p class="pageInfo">TIME LEFT: {{timer.counter}}</p>
         <p class="pageInfo">WORDS LEFT: {{wordsLeft}}</p>
         <mat-progress-bar dir="rtl" mode="determinate" [value]="percantageWordsGuessed"></mat-progress-bar>
@@ -37,7 +37,7 @@
         <p *ngFor="let word of guessedItems" class="textListItem">{{word}}</p>
     </div>
 
-    <div *ngIf="views.clueingView" class="playerForm"> 
+    <div *ngIf="views.clueingView" class="playerForm">
         <p class="center">{{roundInstructions}}</p>
         <p class="center">Your clue is:</p>
         <p class="title bold">{{clue}}</p>

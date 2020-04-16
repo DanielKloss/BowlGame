@@ -1,45 +1,48 @@
-<div class="container background-secondary">
+<div class="container">
     <p class="title background-primary">THE BOWL GAME</p>
 
-    <div class="playerForm">
+    <div class="playerForm background-secondary" *ngIf="submissionsView">
         <mat-form-field class="playerEntry">
             <input matInput placeholder="YOUR NAME" [(ngModel)]="username" [ngModelOptions]="{standalone: true}">
         </mat-form-field>
         <mat-form-field class="playerEntrySmall">
-            <input matInput placeholder="NAME" [(ngModel)]="submittedName" [ngModelOptions]="{standalone: true}" autocomplete="off"/>
+            <input matInput placeholder="NAME" [(ngModel)]="submittedName" [ngModelOptions]="{standalone: true}"
+                autocomplete="off" />
         </mat-form-field>
         <mat-form-field class="playerEntrySmall">
-            <input matInput placeholder="PLACE" [(ngModel)]="submittedPlace" [ngModelOptions]="{standalone: true}" autocomplete="off"/>
+            <input matInput placeholder="PLACE" [(ngModel)]="submittedPlace" [ngModelOptions]="{standalone: true}"
+                autocomplete="off" />
         </mat-form-field>
         <mat-form-field class="playerEntrySmall">
-            <input matInput placeholder="SONG" [(ngModel)]="submittedSong" [ngModelOptions]="{standalone: true}" autocomplete="off"/>
+            <input matInput placeholder="SONG" [(ngModel)]="submittedSong" [ngModelOptions]="{standalone: true}"
+                autocomplete="off" />
         </mat-form-field>
         <mat-form-field class="playerEntrySmall">
-            <input matInput placeholder="BOOK" [(ngModel)]="submittedBook" [ngModelOptions]="{standalone: true}" autocomplete="off"/>
+            <input matInput placeholder="BOOK" [(ngModel)]="submittedBook" [ngModelOptions]="{standalone: true}"
+                autocomplete="off" />
         </mat-form-field>
         <mat-form-field class="playerEntrySmall">
-            <input matInput placeholder="FILM" [(ngModel)]="submittedFilm" [ngModelOptions]="{standalone: true}" autocomplete="off"/>
+            <input matInput placeholder="FILM" [(ngModel)]="submittedFilm" [ngModelOptions]="{standalone: true}"
+                autocomplete="off" />
         </mat-form-field>
+        <button mat-flat-button color="primary" class="playButton" (click)="joinRoomView()">JOIN GAME</button>
+        <button mat-flat-button color="secondary" class="playButton" (click)="createRoomView()">CREATE GAME</button>
     </div>
 
-    <mat-tab-group mat-align-tabs="center" class="background-secondary">
-        <mat-tab label="JOIN GAME">
-            <div class="playerForm">
-                <mat-form-field class="playerEntry">
-                    <input matInput placeholder="ROOM NUMBER" [(ngModel)]="roomNumber"
-                        [ngModelOptions]="{standalone: true}" autocomplete="off">
-                </mat-form-field>
-                <button mat-flat-button color="primary" class="playButton" (click)="joinRoom()">JOIN GAME</button>
-            </div>
-        </mat-tab>
-        <mat-tab label="CREATE GAME">
-            <div class="playerForm">
-                <mat-form-field class="playerEntry">
-                    <input matInput placeholder="NUMBER OF TEAMS" [(ngModel)]="numberOfTeams" [ngModelOptions]="{standalone: true}" autocomplete="off"/>
-                </mat-form-field>
-                <button mat-flat-button color="primary" class="playButton" (click)="createRoom()">CREATE GAME</button>
-            </div>
-        </mat-tab>
-    </mat-tab-group>
-    <div class="errorMessages">{{errorMessage}}</div>
+    <div class="playerForm background-secondary" *ngIf="createView">
+        <mat-form-field class="playerEntry">
+            <input matInput placeholder="NUMBER OF TEAMS" [(ngModel)]="numberOfTeams"
+                [ngModelOptions]="{standalone: true}" autocomplete="off" />
+        </mat-form-field>
+        <button mat-flat-button color="primary" class="playButton" (click)="createRoom()">CREATE GAME</button>
+        <div class="errorMessages">{{errorMessage}}</div>
+    </div>
+
+    <div class="playerForm background-secondary" *ngIf="joinView">
+        <mat-form-field class="playerEntry">
+            <input matInput placeholder="GAME NUMBER" [(ngModel)]="roomNumber" [ngModelOptions]="{standalone: true}"
+                autocomplete="off">
+        </mat-form-field>
+        <button mat-flat-button color="primary" class="playButton" (click)="joinRoom()">JOIN GAME</button>
+    </div>
 </div>

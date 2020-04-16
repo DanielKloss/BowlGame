@@ -10,6 +10,9 @@ import { joinRoomModel } from '../models/socketModels';
   styleUrls: ['./lobby.component.scss']
 })
 export class LobbyComponent implements OnInit {
+  submissionsView: boolean;
+  createView: boolean;
+  joinView: boolean;
 
   username: string;
   roomNumber: string;
@@ -44,6 +47,8 @@ export class LobbyComponent implements OnInit {
     this.serverService.listen("err").subscribe((data: string) => {
       this.errorMessage = data.toUpperCase();
     });
+
+    this.submissionsView = true;
   }
 
   joinRoom() {
@@ -70,5 +75,15 @@ export class LobbyComponent implements OnInit {
       let submissions = [this.submittedName.toUpperCase(), this.submittedPlace.toUpperCase(), this.submittedSong.toUpperCase(), this.submittedBook.toUpperCase(), this.submittedFilm.toUpperCase()]
       this.serverService.emit("createRoom", { username: this.username, numberOfTeams: this.numberOfTeams, submissions: submissions });
     }
+  }
+
+  createRoomView() {
+    this.submissionsView = false;
+    this.createView = true;
+  }
+
+  joinRoomView() {
+    this.submissionsView = false;
+    this.joinView = true;
   }
 }

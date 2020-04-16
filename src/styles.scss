@@ -101,12 +101,6 @@ body, html {
     background-color: #8f9b9e;
 }
 
-button {
-    mat-icon {
-      display: block;
-    }
-  }
-
 .title{
     text-align:center;
     font-size: calc((.4em + 2vmin) + (.4em + 2vmax));
@@ -119,14 +113,6 @@ button {
     display: flex;
     flex-direction: column;
     height: 100%;
-}
-
-.playButton{
-    display: block;
-    width: 70%;
-    padding: 20px;
-    margin: auto;
-    font-size: calc((.4em + 1vmin) + (.4em + 1vmax));
 }
 
 .playerEntry {
@@ -142,22 +128,16 @@ button {
 .playerForm{
     text-align:center;
     padding-top: 30px;
-    height: auto;
+    height: 100%;
 }
 
-
-
-::ng-deep.mat-form-field-label {
-    /*change color of label*/
-    color: black !important;
-}
-
-::ng-deep.mat-form-field-underline {
-    /*change color of underline*/
-    background-color: black !important;
-} 
-
-::ng-deep.mat-form-field-ripple {
-    /*change color of underline when focused*/
-    background-color: black !important;
+.playButton{
+    display: block !important;
+    width: 70% !important;
+    padding: 20px !important;
+    margin-right: auto !important;
+    margin-left: auto !important;
+    margin-top: 20px !important;
+    margin-bottom: 20px !important;
+    font-size: calc((.4em + 1vmin) + (.4em + 1vmax)) !important;
 }
