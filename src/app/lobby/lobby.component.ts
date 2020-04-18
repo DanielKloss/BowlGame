@@ -86,4 +86,10 @@ export class LobbyComponent implements OnInit {
     this.submissionsView = false;
     this.joinView = true;
   }
+
+  roomSubmissionsView(){
+    this.submissionsView = true;
+    this.joinView = false;
+    this.createView = false;
+  }
 }

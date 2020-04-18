@@ -2,3 +2,15 @@
     margin: 30px 20px;
     font-size: calc((.4em + 1vmin) + (.4em + 1vmax));
 }
+
+.buttonContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.joinButton{
+    width: 70%;
+    padding: 20px;
+    font-size: calc((.4em + 1vmin) + (.4em + 1vmax)) !important;
+}
