@@ -3,8 +3,13 @@
         <p class="title">{{username}}</p>
         <p class="pageInfo">GAME: <span class="bold">{{roomNumber}}</span></p>
         <p class="pageInfo">TIME LEFT: {{timer.counter}}</p>
-        <p class="pageInfo">WORDS LEFT: {{wordsLeft}}</p>
-        <mat-progress-bar dir="rtl" mode="determinate" [value]="percantageWordsGuessed"></mat-progress-bar>
+        <div class="bowlContainer" [ngClass]="{'bowl100': percantageWordsGuessed>75, 
+                        'bowl75': percantageWordsGuessed>50 && percantageWordsGuessed<=75,
+                        'bowl50': percantageWordsGuessed>25 && percantageWordsGuessed<=50,
+                        'bowl25': percantageWordsGuessed>0 && percantageWordsGuessed<=25,
+                        'bowl0': percantageWordsGuessed==0}">
+            <p class="bowlInfo">{{wordsLeft}}</p>
+        </div>
     </div>
 
     <div *ngIf="views.lobbyView" class="playerForm">

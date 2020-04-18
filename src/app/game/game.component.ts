@@ -100,7 +100,7 @@ export class GameComponent implements OnInit {
       this.guessedItems.push(model.word);
       this.wordsLeft = model.wordsLeft;
       this.percantageWordsGuessed = model.percantageWordsGuessed;
-
+      console.log(this.percantageWordsGuessed);
       this.addScore();
     });
   }

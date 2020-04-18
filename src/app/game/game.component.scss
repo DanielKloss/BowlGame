@@ -26,3 +26,58 @@
     font-size: calc((.3em + 1vmin) + (.3em + 1vmax));
     text-align: center;
 }
+
+.bowlContainer{
+    margin: 0 auto;
+    min-width: 136px;
+    display: table;
+}
+
+.bowl100{
+    background: url("../../assets/bowlFull.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.bowl75{
+    background: url("../../assets/bowl75.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.bowl50{
+    background: url("../../assets/bowl50.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.bowl25{
+    background: url("../../assets/bowl25.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.bowl0{
+    background: url("../../assets/bowlEmpty.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.bowlInfo{
+    font-size: calc((.7em + 1vmin) + (.7em + 1vmax));
+    font-weight: bold;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    padding-top: 0.9em;
+    padding-bottom: 1.5em;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: -0.5em;
+}
+
+@supports (-webkit-text-stroke: 1px black) {
+    .bowlInfo {
+        -webkit-text-stroke: 1px black;
+        -webkit-text-fill-color: #e87321;
+    }
+  }
