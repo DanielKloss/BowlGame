@@ -70,9 +70,16 @@ export class clueResult {
 export class timer {
     intervalId: any;
 
-    constructor(public counter) {
+    constructor(public counter, public timerPercentage, public start) {
+        this.start = counter;
+        this.timerPercentage = timerPercentage;
+    }
+
+    timerStart(){
         this.intervalId = setInterval(() => {
             this.counter = this.counter - 1;
+            this.timerPercentage = Math.round((this.counter / this.start) * 100);
+            console.log(this.timerPercentage);
             if (this.counter === 0) clearInterval(this.intervalId)
         }, 1000)
     }

@@ -27,6 +27,7 @@ export class GameComponent implements OnInit {
 
   wordsLeft: number;
   percantageWordsGuessed: number;
+  bowlImage: string;
 
   constructor(private route: ActivatedRoute, private serverService: ServerService) { }
 
@@ -34,11 +35,17 @@ export class GameComponent implements OnInit {
     this.username = this.route.snapshot.paramMap.get('username');
     this.roomNumber = this.route.snapshot.paramMap.get('roomNumber');
 
+    this.timer = new timer(60, 100, 60);
+    this.percantageWordsGuessed = 100;
+    this.getBowlImage();
+    this.wordsLeft = 5;
+
     this.views = new views();
     this.lobbyView();
 
     this.serverService.listen("newPlayerJoined").subscribe((data: Array<team>) => {
       this.teams = data;
+      this.wordsLeft += 5;
     });
 
     this.serverService.listen("startTurnButton").subscribe(() => {
@@ -47,36 +54,42 @@ export class GameComponent implements OnInit {
 
     this.serverService.listen("cluer").subscribe((data: string) => {
       let model: clueModel = JSON.parse(data);
-      this.timer = new timer(model.time);
+      this.timer = new timer(model.time, 100, 60);
+      this.timer.timerStart();
       this.clue = model.word;
       this.clueGiver = model.clueGiver;
       this.guessingTeam = model.teamNumber;
       this.guessedItems = [];
       this.wordsLeft = model.wordsLeft;
       this.percantageWordsGuessed = model.percantageWordsGuessed;
+      this.getBowlImage();
       this.roundInstructions = model.roundInstructions;
       this.clueView();
     });
 
     this.serverService.listen("guessing").subscribe((data: string) => {
       let model: turnModel = JSON.parse(data);
-      this.timer = new timer(model.time);
+      this.timer = new timer(model.time, 100, 60);
+      this.timer.timerStart();
       this.clueGiver = model.clueGiver;
       this.guessingTeam = model.teamNumber;
       this.guessedItems = [];
       this.wordsLeft = model.wordsLeft;
       this.percantageWordsGuessed = model.percantageWordsGuessed;
+      this.getBowlImage();
       this.guessView();
     });
 
     this.serverService.listen("waiting").subscribe((data: string) => {
       let model: turnModel = JSON.parse(data);
-      this.timer = new timer(model.time);
+      this.timer = new timer(model.time, 100, 60);
+      this.timer.timerStart();
       this.clueGiver = model.clueGiver;
       this.guessingTeam = model.teamNumber;
       this.guessedItems = [];
       this.wordsLeft = model.wordsLeft;
       this.percantageWordsGuessed = model.percantageWordsGuessed;
+      this.getBowlImage();
       this.waitView();
     });
 
@@ -93,6 +106,7 @@ export class GameComponent implements OnInit {
       this.clue = model.word;
       this.wordsLeft = model.wordsLeft;
       this.percantageWordsGuessed = model.percantageWordsGuessed;
+      this.getBowlImage();
     });
 
     this.serverService.listen("newClueResult").subscribe((data: string) => {
@@ -100,9 +114,22 @@ export class GameComponent implements OnInit {
       this.guessedItems.push(model.word);
       this.wordsLeft = model.wordsLeft;
       this.percantageWordsGuessed = model.percantageWordsGuessed;
-      console.log(this.percantageWordsGuessed);
+      this.getBowlImage();
       this.addScore();
     });
+  }
+  getBowlImage() {
+    if (this.percantageWordsGuessed > 75) {
+      this.bowlImage = "../../assets/bowlFull.svg";
+    } else if (this.percantageWordsGuessed > 50) {
+      this.bowlImage = "../../assets/bowl75.svg";
+    } else if (this.percantageWordsGuessed > 25) {
+      this.bowlImage = "../../assets/bowl50.svg";
+    } else if (this.percantageWordsGuessed > 0) {
+      this.bowlImage = "../../assets/bowl25.svg";
+    } else {
+      this.bowlImage = "../../assets/bowlEmpty.svg";
+    }
   }
 
   @HostListener('window:beforeunload', ['$event'])

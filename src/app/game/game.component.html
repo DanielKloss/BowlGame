@@ -1,14 +1,25 @@
 <div class="container background-secondary">
-    <div class="background-primary">
+    <div class="background-primary headerFlex">
         <p class="title">{{username}}</p>
         <p class="pageInfo">GAME: <span class="bold">{{roomNumber}}</span></p>
-        <p class="pageInfo">TIME LEFT: {{timer.counter}}</p>
-        <div class="bowlContainer" [ngClass]="{'bowl100': percantageWordsGuessed>75, 
+        <div class="timeAndBowlContainer">
+            <!-- <div class="bowlContainer" [ngClass]="{'bowl100': percantageWordsGuessed>75, 
                         'bowl75': percantageWordsGuessed>50 && percantageWordsGuessed<=75,
                         'bowl50': percantageWordsGuessed>25 && percantageWordsGuessed<=50,
                         'bowl25': percantageWordsGuessed>0 && percantageWordsGuessed<=25,
                         'bowl0': percantageWordsGuessed==0}">
-            <p class="bowlInfo">{{wordsLeft}}</p>
+                <p class="bowlInfo">{{wordsLeft}}</p>
+            </div> -->
+            <div class="bowlContainer" [attr.data-label]="wordsLeft">
+                <img class="timeImage" [src]="bowlImage" />
+                <!-- <p class="timerInfo">{{wordsLeft}}</p> -->
+            </div>
+            <div class="timeContainer" [attr.data-label]="timer.counter">
+                <img class="timeImage" src="../../assets/stopwatch.svg" />
+                <mat-progress-spinner class="spinner" [diameter]="65" [value]="timer.timerPercentage">
+                </mat-progress-spinner>
+                <!-- <p class="timerInfo">{{timer.counter}}</p> -->
+            </div>
         </div>
     </div>
 
