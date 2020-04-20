@@ -28,9 +28,9 @@
 }
 
 .bowlContainer{
-    // margin: 0 auto;
-    min-width: 136px;
-    display: table;
+    display: flex;
+    flex-direction: row;
+    position: relative;
 }
 
 .bowl100{
@@ -70,6 +70,7 @@
     display: flex;
     flex-direction: row;
     position: relative;
+    text-align: center;
 }
 
 .timeImage{
@@ -92,6 +93,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    margin-bottom: 2%;
 }
 
 .timeContainer:after{
@@ -106,12 +108,34 @@
 .bowlContainer:after{
     content: attr(data-label);
     position: absolute;
-    top: 34%;
-    left: 25%;
-    font-size: 42px;
+    top: 35%;
+    left: 38%;
+    font-size: 38px;
     font-weight: bold;
     @supports (-webkit-text-stroke: 1px black) {
             -webkit-text-stroke: 1px black;
             -webkit-text-fill-color: #e87321;
       }
+}
+
+.clueView{
+    display: flex;
+    flex-direction: column;
+    justify-items: start;
+    justify-content: center;
+    align-items: stretch;
+    text-align: center;
+}
+
+.cluePaper{
+    background: url("../../assets/paper1.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 80px;
+    margin: 0 auto;
+    width: 80%;
+    text-align: center;
+    line-height: 50px;
+    font-weight: bold;
 }

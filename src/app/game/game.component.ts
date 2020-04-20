@@ -94,7 +94,6 @@ export class GameComponent implements OnInit {
     });
 
     this.serverService.listen("lobby").subscribe(() => {
-      console.log("lobby");
       this.isClueGiver = false;
       this.guessedItems = [];
       clearInterval(this.timer.intervalId);

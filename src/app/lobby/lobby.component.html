@@ -13,7 +13,7 @@
         <input placeholder="FILM" type="text" [(ngModel)]="submittedFilm" [ngModelOptions]="{standalone: true}"
             autocomplete="off" class="paperInput paper5" />
         <button mat-flat-button color="primary" class="playButton" (click)="joinRoomView()">JOIN GAME</button>
-        <button mat-flat-button color="secondary" class="playButton" (click)="createRoomView()">CREATE GAME</button>
+        <button mat-flat-button class="joinButton" (click)="createRoomView()">CREATE GAME</button>
     </div>
 
     <div class="playerForm background-secondary" *ngIf="createView">

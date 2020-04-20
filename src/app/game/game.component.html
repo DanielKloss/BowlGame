@@ -3,22 +3,13 @@
         <p class="title">{{username}}</p>
         <p class="pageInfo">GAME: <span class="bold">{{roomNumber}}</span></p>
         <div class="timeAndBowlContainer">
-            <!-- <div class="bowlContainer" [ngClass]="{'bowl100': percantageWordsGuessed>75, 
-                        'bowl75': percantageWordsGuessed>50 && percantageWordsGuessed<=75,
-                        'bowl50': percantageWordsGuessed>25 && percantageWordsGuessed<=50,
-                        'bowl25': percantageWordsGuessed>0 && percantageWordsGuessed<=25,
-                        'bowl0': percantageWordsGuessed==0}">
-                <p class="bowlInfo">{{wordsLeft}}</p>
-            </div> -->
             <div class="bowlContainer" [attr.data-label]="wordsLeft">
                 <img class="timeImage" [src]="bowlImage" />
-                <!-- <p class="timerInfo">{{wordsLeft}}</p> -->
             </div>
             <div class="timeContainer" [attr.data-label]="timer.counter">
                 <img class="timeImage" src="../../assets/stopwatch.svg" />
                 <mat-progress-spinner class="spinner" [diameter]="65" [value]="timer.timerPercentage">
                 </mat-progress-spinner>
-                <!-- <p class="timerInfo">{{timer.counter}}</p> -->
             </div>
         </div>
     </div>
@@ -29,8 +20,11 @@
             <p class="textListItem" *ngFor="let player of team.players">{{player.username}}</p>
         </div>
 
-        <button mat-flat-button color="primary" class="playButton" *ngIf="isClueGiver" (click)="startGame()">START
-            TURN</button>
+        <div *ngIf="isClueGiver">
+            <p class="textListItem">It is your turn. Click the button below when your team is ready.</p>
+            <button mat-flat-button color="primary" class="playButton" (click)="startGame()">START
+                TURN</button>
+        </div>
     </div>
 
     <div *ngIf="views.waitingView">
@@ -45,6 +39,10 @@
     </div>
 
     <div *ngIf="views.guessingView">
+        <div *ngFor="let team of teams">
+            <p>TEAM {{team.teamNumber}} - SCORE {{team.score}}</p>
+            <p *ngFor="let player of team.players" class="textListItem">{{player.username}}</p>
+        </div>
         <div class="textListItem">
             <p><span class="bold">{{clueGiver}}</span> is giving clues for your team</p>
             <p>Shout out a guess when you think you know!</p>
@@ -53,74 +51,13 @@
         <p *ngFor="let word of guessedItems" class="textListItem">{{word}}</p>
     </div>
 
-    <div *ngIf="views.clueingView" class="playerForm">
-        <p class="center">{{roundInstructions}}</p>
-        <p class="center">Your clue is:</p>
-        <p class="title bold">{{clue}}</p>
-        <p class="center">Click <span class="bold">GOT IT</span> when someone from your team guesses correctly</p>
+    <div class="clueView" *ngIf="views.clueingView">
+        <p>{{roundInstructions}}</p>
+        <p>Your word is:</p>
+        <div class="cluePaper">
+            <p>{{clue}}</p>
+        </div>
+        <p>Click <span class="bold">GOT IT</span> when someone from your team guesses correctly</p>
         <button mat-flat-button color="primary" class="playButton" (click)="gotClue()">GOT IT!</button>
     </div>
 </div>
-
-
-
-<!-- <div class="container background-secondary">
-    <div class="background-primary">
-        <p class="title">DAN</p>
-        <p class="center roomNumber">RFX2</p>
-        <p>60</p>
-    </div>
-
- <div>
-        <div>
-            <p class="sectionTitle">TEAM 1 - <span class="sectionInfo">SCORE 2</span></p>
-            <p class="textListItem">DAN</p>
-            <p class="textListItem">NAT</p>
-            <p class="textListItem">GEORGIE</p>
-        </div>
-        <div>
-            <p class="sectionTitle">TEAM 2 - SCORE 4</p>
-            <p class="textListItem">SARAH</p>
-            <p class="textListItem">RICHARD</p>
-            <p class="textListItem">THOMAS</p>
-        </div>
-
-        <button mat-flat-button color="primary" class="playButton" (click)="startGame()">START TURN</button>
-    </div> 
-
- <div>
-        <div>
-            <p class="sectionTitle">TEAM 1 - <span class="sectionInfo">SCORE 2</span></p>
-            <p class="textListItem">DAN</p>
-            <p class="textListItem">NAT</p>
-            <p class="textListItem">GEORGIE</p>
-        </div>
-        <div>
-            <p class="sectionTitle">TEAM 2 - SCORE 4</p>
-            <p class="textListItem">SARAH</p>
-            <p class="textListItem">RICHARD</p>
-            <p class="textListItem">THOMAS</p>
-        </div>
-        <p class="textListItem"><span class="bold">DAN</span> is giving clues to the other team. <span class="bold">PAY
-                ATTENTION</span>, these
-            words will appear again in future rounds</p>
-        <p class="sectionTitle">Words guessed in this round:</p>
-        <p class="textListItem">Emily</p>
-        <p>Benji</p>
-        <p>Ealing</p>
-    </div> 
-
-    <div class="textListItem">
-        <p><span class="bold">DAN</span> is giving clues for your team</p>
-        <p>Shout out a guess when you think you know!</p>
-        <p class="sectionTitle">PREVIOUS WORDS:</p>
-        <p *ngFor="let word of guessedItems">{{word}}</p>
-    </div> 
-
-    <div>
-        <p class="center">Using as many words as you like</p>
-        <p class="center">Your clue is:</p>
-        <p class="title bold">EMILY</p>
-        <button mat-flat-button color="primary" class="playButton" (click)="gotClue()">GOT IT!</button>
-    </div> 
-</div> -->
