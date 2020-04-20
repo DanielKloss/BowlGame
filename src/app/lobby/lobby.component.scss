@@ -17,16 +17,47 @@
 
 .paperInput
 {
-    background: url("../../assets/paper.svg");
     border-width: 0px;
     display: block;
     height: 80px;
     width: 80%;
     margin: 0 auto;
+    text-align: center;
+}
+
+.paper1 {
+    background: url("../../assets/paper1.svg");
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
-    text-align: center;
+}
+
+.paper2 {
+    background: url("../../assets/paper2.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+.paper3 {
+    background: url("../../assets/paper3.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+.paper4 {
+    background: url("../../assets/paper4.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+.paper5 {
+    background: url("../../assets/paper5.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
 }
 
 input:focus{

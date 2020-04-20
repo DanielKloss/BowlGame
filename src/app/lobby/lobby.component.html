@@ -3,15 +3,15 @@
 
     <div class="playerForm background-secondary" *ngIf="submissionsView">
         <input placeholder="PLACE" type="text" [(ngModel)]="submittedPlace" [ngModelOptions]="{standalone: true}"
-            autocomplete="off" class="paperInput" />
+            autocomplete="off" class="paperInput paper1" />
         <input placeholder="PERSON" type="text" [(ngModel)]="submittedName" [ngModelOptions]="{standalone: true}"
-            autocomplete="off" class="paperInput" />
+            autocomplete="off" class="paperInput paper2" />
         <input placeholder="SONG" type="text" [(ngModel)]="submittedSong" [ngModelOptions]="{standalone: true}"
-            autocomplete="off" class="paperInput" />
+            autocomplete="off" class="paperInput paper3" />
         <input placeholder="BOOK" type="text" [(ngModel)]="submittedBook" [ngModelOptions]="{standalone: true}"
-            autocomplete="off" class="paperInput" />
+            autocomplete="off" class="paperInput paper4" />
         <input placeholder="FILM" type="text" [(ngModel)]="submittedFilm" [ngModelOptions]="{standalone: true}"
-            autocomplete="off" class="paperInput" />
+            autocomplete="off" class="paperInput paper5" />
         <button mat-flat-button color="primary" class="playButton" (click)="joinRoomView()">JOIN GAME</button>
         <button mat-flat-button color="secondary" class="playButton" (click)="createRoomView()">CREATE GAME</button>
     </div>
