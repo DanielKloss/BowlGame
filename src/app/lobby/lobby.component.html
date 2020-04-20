@@ -2,26 +2,16 @@
     <p class="title background-primary">THE BOWL GAME</p>
 
     <div class="playerForm background-secondary" *ngIf="submissionsView">
-        <mat-form-field class="playerEntrySmall">
-            <input matInput placeholder="NAME" [(ngModel)]="submittedName" [ngModelOptions]="{standalone: true}"
-                autocomplete="off" />
-        </mat-form-field>
-        <mat-form-field class="playerEntrySmall">
-            <input matInput placeholder="PLACE" [(ngModel)]="submittedPlace" [ngModelOptions]="{standalone: true}"
-                autocomplete="off" />
-        </mat-form-field>
-        <mat-form-field class="playerEntrySmall">
-            <input matInput placeholder="SONG" [(ngModel)]="submittedSong" [ngModelOptions]="{standalone: true}"
-                autocomplete="off" />
-        </mat-form-field>
-        <mat-form-field class="playerEntrySmall">
-            <input matInput placeholder="BOOK" [(ngModel)]="submittedBook" [ngModelOptions]="{standalone: true}"
-                autocomplete="off" />
-        </mat-form-field>
-        <mat-form-field class="playerEntrySmall">
-            <input matInput placeholder="FILM" [(ngModel)]="submittedFilm" [ngModelOptions]="{standalone: true}"
-                autocomplete="off" />
-        </mat-form-field>
+        <input placeholder="PLACE" type="text" [(ngModel)]="submittedPlace" [ngModelOptions]="{standalone: true}"
+            autocomplete="off" class="paperInput" />
+        <input placeholder="PERSON" type="text" [(ngModel)]="submittedName" [ngModelOptions]="{standalone: true}"
+            autocomplete="off" class="paperInput" />
+        <input placeholder="SONG" type="text" [(ngModel)]="submittedSong" [ngModelOptions]="{standalone: true}"
+            autocomplete="off" class="paperInput" />
+        <input placeholder="BOOK" type="text" [(ngModel)]="submittedBook" [ngModelOptions]="{standalone: true}"
+            autocomplete="off" class="paperInput" />
+        <input placeholder="FILM" type="text" [(ngModel)]="submittedFilm" [ngModelOptions]="{standalone: true}"
+            autocomplete="off" class="paperInput" />
         <button mat-flat-button color="primary" class="playButton" (click)="joinRoomView()">JOIN GAME</button>
         <button mat-flat-button color="secondary" class="playButton" (click)="createRoomView()">CREATE GAME</button>
     </div>

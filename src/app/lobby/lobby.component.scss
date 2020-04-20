@@ -14,3 +14,21 @@
     padding: 20px;
     font-size: calc((.4em + 1vmin) + (.4em + 1vmax)) !important;
 }
+
+.paperInput
+{
+    background: url("../../assets/paper.svg");
+    border-width: 0px;
+    display: block;
+    height: 80px;
+    width: 80%;
+    margin: 0 auto;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    text-align: center;
+}
+
+input:focus{
+    outline: none;
+}
