@@ -157,3 +157,15 @@
 .cluePaperAdjustment{
     line-height: 75px !important;
 }
+
+.pageInfoContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.pageHeader{
+    text-align: center;
+    font-size: calc((.4em + 2vmin) + (.4em + 2vmax));
+}

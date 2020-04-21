@@ -1,7 +1,9 @@
 <div class="container background-secondary">
     <div class="background-primary headerFlex">
-        <p class="title">{{username}}</p>
-        <p class="pageInfo">GAME: <span class="bold">{{roomNumber}}</span></p>
+        <div class="pageInfoContainer">
+            <p class="pageHeader">{{username}}</p>
+            <p class="pageInfo">GAME: <span class="bold">{{roomNumber}}</span></p>
+        </div>
         <div class="timeAndBowlContainer">
             <div class="bowlContainer" [attr.data-label]="wordsLeft">
                 <img class="timeImage" [src]="bowlImage" />
