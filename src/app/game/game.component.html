@@ -14,44 +14,59 @@
         </div>
     </div>
 
-    <div *ngIf="views.lobbyView" class="playerForm">
-        <div *ngFor="let team of teams">
-            <p class="sectionTitle">TEAM {{team.teamNumber}} - <span class="sectionInfo">SCORE {{team.score}}</span></p>
-            <p class="textListItem" *ngFor="let player of team.players">{{player.username}}</p>
+    <div *ngIf="views.lobbyView" class="background-secondary">
+        <div class="scores">
+            <div *ngFor="let team of teams">
+                <p class="bold">TEAM {{team.teamNumber}}</p>
+                <p class="score">{{team.score}}</p>
+                <p *ngFor="let player of team.players; let isFirst = first" [class.topBorder]="isFirst">
+                    {{player.username}}</p>
+            </div>
         </div>
 
         <div *ngIf="isClueGiver">
-            <p class="textListItem">It is your turn. Click the button below when your team is ready.</p>
+            <p class="gameInfo">It is your turn. Click the button below when your team is ready.</p>
             <button mat-flat-button color="primary" class="playButton" (click)="startGame()">START
                 TURN</button>
         </div>
     </div>
 
-    <div *ngIf="views.waitingView">
-        <div *ngFor="let team of teams">
-            <p>TEAM {{team.teamNumber}} - SCORE {{team.score}}</p>
-            <p *ngFor="let player of team.players" class="textListItem">{{player.username}}</p>
+    <div *ngIf="views.waitingView" class="background-secondary">
+        <div class="scores">
+            <div *ngFor="let team of teams">
+                <p class="bold">TEAM {{team.teamNumber}}</p>
+                <p class="score">{{team.score}}</p>
+                <p *ngFor="let player of team.players; let isFirst = first" [class.topBorder]="isFirst">
+                    {{player.username}}</p>
+            </div>
         </div>
-        <p class="textListItem"><span class="bold">{{clueGiver}}</span> is giving clues to the other team. <span
-                class="bold">PAY ATTENTION</span>, these words will appear again in future rounds</p>
+        <p class="gameInfo"><span class="bold">{{clueGiver}}</span> is giving clues to the other team. <span
+                class="bold">PAY
+                ATTENTION</span>, these words will appear again in future rounds</p>
         <p class="sectionTitle">Words guessed in this round:</p>
-        <p *ngFor="let word of guessedItems" class="textListItem">{{word}}</p>
+        <div class="cluePaper cluePaperAdjustment" *ngFor="let word of guessedItems">
+            <p>{{word}}</p>
+        </div>
     </div>
 
-    <div *ngIf="views.guessingView">
-        <div *ngFor="let team of teams">
-            <p>TEAM {{team.teamNumber}} - SCORE {{team.score}}</p>
-            <p *ngFor="let player of team.players" class="textListItem">{{player.username}}</p>
+    <div *ngIf="views.guessingView" class="background-secondary">
+        <div class="scores">
+            <div *ngFor="let team of teams">
+                <p class="bold">TEAM {{team.teamNumber}}</p>
+                <p class="score">{{team.score}}</p>
+                <p *ngFor="let player of team.players; let isFirst = first" [class.topBorder]="isFirst">
+                    {{player.username}}</p>
+            </div>
         </div>
-        <div class="textListItem">
-            <p><span class="bold">{{clueGiver}}</span> is giving clues for your team</p>
-            <p>Shout out a guess when you think you know!</p>
-        </div>
+        <p class="gameInfo"><span class="bold">{{clueGiver}}</span> is giving clues for your team</p>
+        <p class="gameInfo">Shout out a guess when you think you know!</p>
         <p class="sectionTitle">Words guessed correctly in this round:</p>
-        <p *ngFor="let word of guessedItems" class="textListItem">{{word}}</p>
+        <div class="cluePaper cluePaperAdjustment" *ngFor="let word of guessedItems">
+            <p>{{word}}</p>
+        </div>
     </div>
 
-    <div class="clueView" *ngIf="views.clueingView">
+    <div *ngIf="views.clueingView" class="clueView background-secondary">
         <p>{{roundInstructions}}</p>
         <p>Your word is:</p>
         <div class="cluePaper">

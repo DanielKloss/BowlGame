@@ -9,11 +9,6 @@
     display: inline;
 }
 
-.textListItem{
-    margin-left: 20px;
-    margin-top: 10px;
-}
-
 .bold{
     font-weight: bold;
 }
@@ -138,4 +133,27 @@
     text-align: center;
     line-height: 50px;
     font-weight: bold;
+}
+
+.scores{
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+}
+
+.score{
+    color: antiquewhite;
+}
+
+.topBorder{
+    border-top: black 3px solid;
+    padding-top: 20px;
+}
+
+.gameInfo{
+    text-align: center;
+}
+
+.cluePaperAdjustment{
+    line-height: 75px !important;
 }
