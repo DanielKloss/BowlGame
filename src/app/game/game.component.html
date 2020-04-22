@@ -18,7 +18,7 @@
 
     <div *ngIf="views.lobbyView" class="background-secondary">
         <div class="scores">
-            <div *ngFor="let team of teams">
+            <div *ngFor="let team of teams" class="insetBorder">
                 <p class="bold">TEAM {{team.teamNumber}}</p>
                 <p class="score">{{team.score}}</p>
                 <p *ngFor="let player of team.players; let isFirst = first" [class.topBorder]="isFirst">
@@ -35,7 +35,7 @@
 
     <div *ngIf="views.waitingView" class="background-secondary">
         <div class="scores">
-            <div *ngFor="let team of teams">
+            <div *ngFor="let team of teams" class="insetBorder">
                 <p class="bold">TEAM {{team.teamNumber}}</p>
                 <p class="score">{{team.score}}</p>
                 <p *ngFor="let player of team.players; let isFirst = first" [class.topBorder]="isFirst">
@@ -53,7 +53,7 @@
 
     <div *ngIf="views.guessingView" class="background-secondary">
         <div class="scores">
-            <div *ngFor="let team of teams">
+            <div *ngFor="let team of teams" class="insetBorder">
                 <p class="bold">TEAM {{team.teamNumber}}</p>
                 <p class="score">{{team.score}}</p>
                 <p *ngFor="let player of team.players; let isFirst = first" [class.topBorder]="isFirst">
