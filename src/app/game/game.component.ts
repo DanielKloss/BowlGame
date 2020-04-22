@@ -45,7 +45,14 @@ export class GameComponent implements OnInit {
 
     this.serverService.listen("newPlayerJoined").subscribe((data: Array<team>) => {
       this.teams = data;
-      this.wordsLeft += 5;
+      this.wordsLeft = 0;
+
+      for (var i = 0; i < this.teams.length; i++) {
+        console.log("team " + i);
+        console.log(this.teams[i].players.length + " players");
+        console.log("adding " + this.teams[i].players.length * 5);
+        this.wordsLeft += (this.teams[i].players.length * 5);
+      }
     });
 
     this.serverService.listen("startTurnButton").subscribe(() => {
@@ -117,6 +124,7 @@ export class GameComponent implements OnInit {
       this.addScore();
     });
   }
+
   getBowlImage() {
     if (this.percantageWordsGuessed > 75) {
       this.bowlImage = "../../assets/bowlFull.svg";
